@@ -1,4 +1,4 @@
-# readlines-sync
+# @marmooo/readlines-sync
 
 Read large text files line by line synchronously.
 

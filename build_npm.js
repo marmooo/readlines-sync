@@ -9,7 +9,7 @@ await build({
     deno: true,
   },
   package: {
-    name: "readlines-sync",
+    name: "@marmooo/readlines-sync",
     version: Deno.args[0],
     description: "Read large text files line by line synchronously.",
     license: "MIT",
