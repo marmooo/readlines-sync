@@ -21,19 +21,19 @@ file.close();
 
 ```
 cpu: Intel(R) Core(TM) i5-6200U CPU @ 2.30GHz
-runtime: deno 1.36.4 (x86_64-unknown-linux-gnu)
+runtime: deno 1.37.0 (x86_64-unknown-linux-gnu)
 
 bench.js
 benchmark            time (avg)        iter/s             (min … max)       p75       p99      p995
 --------------------------------------------------------------------- -----------------------------
-node:readline          1.34 s/iter           0.7       (1.29 s … 1.44 s)    1.36 s    1.44 s    1.44 s
-npm:n-readlines        3.46 s/iter           0.3       (3.42 s … 3.56 s)    3.48 s    3.56 s    3.56 s
-readLines              3.45 s/iter           0.3       (3.37 s … 3.51 s)    3.48 s    3.51 s    3.51 s
-TextLineStream         2.16 s/iter           0.5       (2.14 s … 2.17 s)    2.17 s    2.17 s    2.17 s
-split                  1.11 s/iter           0.9        (1.1 s … 1.12 s)    1.11 s    1.12 s    1.12 s
-sync1               713.78 ms/iter           1.4 (711.41 ms … 717.82 ms) 715.81 ms 717.82 ms 717.82 ms
-sync2               710.79 ms/iter           1.4 (708.41 ms … 719.14 ms) 711.09 ms 719.14 ms 719.14 ms
-readLinesSync          750 ms/iter           1.3 (748.78 ms … 751.63 ms) 750.44 ms 751.63 ms 751.63 ms
+node:readline           1.3 s/iter           0.8       (1.27 s … 1.32 s)    1.31 s    1.32 s    1.32 s
+npm:n-readlines        3.53 s/iter           0.3       (3.49 s … 3.73 s)    3.56 s    3.73 s    3.73 s
+readLines              3.46 s/iter           0.3       (3.32 s … 3.64 s)    3.49 s    3.64 s    3.64 s
+TextLineStream      954.62 ms/iter           1.0     (932 ms … 981.1 ms) 973.92 ms  981.1 ms  981.1 ms
+split                  1.09 s/iter           0.9        (1.08 s … 1.1 s)     1.1 s     1.1 s     1.1 s
+sync1               722.73 ms/iter           1.4  (722.02 ms … 724.5 ms) 723.15 ms  724.5 ms  724.5 ms
+sync2               707.76 ms/iter           1.4 (706.72 ms … 709.47 ms) 708.17 ms 709.47 ms 709.47 ms
+readLinesSync       753.06 ms/iter           1.3 (751.73 ms … 755.43 ms) 753.38 ms 755.43 ms 755.43 ms
 ```
 
 ## Test
