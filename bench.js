@@ -1,5 +1,5 @@
-import { TextLineStream } from "https://deno.land/std/streams/mod.ts";
-import { readLines } from "https://deno.land/std/io/mod.ts";
+import { TextLineStream } from "jsr:@std/streams/text-line-stream";
+import { readLines } from "jsr:@std/io@0.224/read-lines";
 import { readLinesSync } from "./mod.js";
 import lineByLine from "npm:n-readlines";
 import { iterateReader } from "jsr:@std/io/iterate-reader";
