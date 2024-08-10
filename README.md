@@ -29,7 +29,7 @@ node:readline          1.07 s/iter           0.9       (1.06 s … 1.08 s) 1.07 
 npm:n-readlines        4.19 s/iter           0.2       (3.84 s … 4.54 s) 4.29 s 4.54 s 4.54 s
 readLines               3.3 s/iter           0.3       (3.15 s … 3.36 s) 3.35 s 3.36 s 3.36 s
 TextLineStream      778.69 ms/iter           1.3 (771.22 ms … 784.98 ms) 782.5 ms 784.98 ms 784.98 ms
-iterateLines        755.92 ms/iter           1.3  (725.1 ms … 773.81 ms) 772.17 ms 773.81 ms 773.81 ms
+iterateReader       755.92 ms/iter           1.3  (725.1 ms … 773.81 ms) 772.17 ms 773.81 ms 773.81 ms
 split                  1.01 s/iter           1.0    (996.61 ms … 1.08 s) 1 s 1.08 s 1.08 s
 sync1               648.11 ms/iter           1.5 (645.55 ms … 653.53 ms) 648.04 ms 653.53 ms 653.53 ms
 sync2               631.06 ms/iter           1.6 (628.88 ms … 632.89 ms) 632.19 ms 632.89 ms 632.89 ms

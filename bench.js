@@ -99,7 +99,7 @@ Deno.bench("TextLineStream", async () => {
     line;
   }
 });
-Deno.bench("iterateLines", async () => {
+Deno.bench("iterateReader", async () => {
   const file = await Deno.open(filePath);
   for await (const line of iterateLines(file)) {
     line;
