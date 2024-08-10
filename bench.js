@@ -49,11 +49,11 @@ function readLinesSync2(file, callback) {
 
 async function* iterateLines(file) {
   const decoder = new TextDecoder();
-  let bufferStr = '';
+  let bufferStr = "";
   for await (const chunk of iterateReader(file)) {
     bufferStr += decoder.decode(chunk, { stream: true });
-    const lines = bufferStr.split('\n');
-    bufferStr = lines.pop() || '';
+    const lines = bufferStr.split("\n");
+    bufferStr = lines.pop() || "";
     for (const line of lines) {
       yield line;
     }
