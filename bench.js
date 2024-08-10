@@ -16,7 +16,7 @@ function readLinesSync1(file, callback) {
     line += decoder.decode(buffer.subarray(0, bytesRead));
     while (line.includes("\n")) {
       const index = line.indexOf("\n");
-      callback(line);
+      callback(line.slice(0, index));
       line = line.slice(index + 1);
     }
   }
