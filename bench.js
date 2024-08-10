@@ -2,6 +2,7 @@ import { TextLineStream } from "https://deno.land/std/streams/mod.ts";
 import { readLines } from "https://deno.land/std/io/mod.ts";
 import { readLinesSync } from "./mod.js";
 import lineByLine from "npm:n-readlines";
+import { iterateReader } from "jsr:@std/io/iterate-reader";
 // import { open } from "node:fs/promises";
 import readline from "node:readline";
 import fs from "node:fs";
@@ -46,6 +47,19 @@ function readLinesSync2(file, callback) {
   }
 }
 
+async function* iterateLines(file) {
+  const decoder = new TextDecoder();
+  let bufferStr = '';
+  for await (const chunk of iterateReader(file)) {
+    bufferStr += decoder.decode(chunk, { stream: true });
+    const lines = bufferStr.split('\n');
+    bufferStr = lines.pop() || '';
+    for (const line of lines) {
+      yield line;
+    }
+  }
+}
+
 const filePath = "SudachiDict/src/main/text/small_lex.csv";
 
 // TODO: https://github.com/denoland/deno/issues/19165
@@ -84,6 +98,13 @@ Deno.bench("TextLineStream", async () => {
   for await (const line of lineStream) {
     line;
   }
+});
+Deno.bench("iterateLines", async () => {
+  const file = await Deno.open(filePath);
+  for await (const line of iterateLines(file)) {
+    line;
+  }
+  file.close();
 });
 Deno.bench("split", () => {
   const text = Deno.readTextFileSync(filePath);
