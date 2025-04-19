@@ -3,9 +3,9 @@ import { readLines } from "jsr:@std/io@0.224/read-lines";
 import { readLinesSync } from "./mod.js";
 import lineByLine from "npm:n-readlines";
 import { iterateReader } from "jsr:@std/io/iterate-reader";
-// import { open } from "node:fs/promises";
 import readline from "node:readline";
 import fs from "node:fs";
+import { open } from "node:fs/promises";
 
 function readLinesSync1(file, callback) {
   const decoder = new TextDecoder();
@@ -62,13 +62,14 @@ async function* iterateLines(file) {
 
 const filePath = "SudachiDict/src/main/text/small_lex.csv";
 
-// TODO: https://github.com/denoland/deno/issues/19165
-// Deno.bench(("node:fs"), async () => {
-//   const file = await open("SudachiDict/src/main/text/small_lex.csv");
-//   for await (const line of file.readLines()) {
-//     line;
-//   }
-// });
+Deno.bench("node:fs", async () => {
+  const file = await open("SudachiDict/src/main/text/small_lex.csv");
+  const stream = file.createReadStream();
+  const reader = readline.createInterface({ input: stream });
+  for await (const line of reader) {
+    line;
+  }
+});
 Deno.bench("node:readline", async () => {
   const stream = fs.createReadStream(filePath);
   const reader = readline.createInterface({ input: stream });
