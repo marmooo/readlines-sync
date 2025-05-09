@@ -1,4 +1,4 @@
-import { assertEquals } from "https://deno.land/std/assert/mod.ts";
+import { assertEquals } from "jsr:@std/assert";
 import { readLinesSync } from "./mod.js";
 
 Deno.test("Simple check", async () => {
